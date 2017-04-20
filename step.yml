@@ -31,7 +31,7 @@ inputs:
     opts:
       title: Personal Access Token
       description: |-
-        To get your GitHub Personal Access Token, follow the istructions below:
+        To get your GitHub Personal Access Token, follow the instructions below:
         1) Login to yout GitHub account
         2) In the upper-right corner of any page, click your profile photo, then click **Settings**.
         3) In the left sidebar, click **Personal access tokens**.
