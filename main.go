@@ -23,7 +23,7 @@ type ConfigsModel struct {
 
 func createConfigsModelFromEnvs() ConfigsModel {
 	return ConfigsModel{
-		GithubHosts: []string{"github.com", "api.github.com"},
+		GithubHosts: []string{"github.com", "api.github.com", "uploads.github.com"},
 		Username:    os.Getenv("username"),
 		AccessToken: os.Getenv("access_token"),
 	}
