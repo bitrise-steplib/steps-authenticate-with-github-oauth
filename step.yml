@@ -27,6 +27,8 @@ inputs:
       title: GitHub username
       summary: The username used for GitHub to login.
       is_required: true
+      is_expand: true
+      is_sensitive: true
   - access_token:
     opts:
       title: Personal Access Token
@@ -34,9 +36,12 @@ inputs:
         To get your GitHub Personal Access Token, follow the instructions below:
         1) Login to yout GitHub account
         2) In the upper-right corner of any page, click your profile photo, then click **Settings**.
-        3) In the left sidebar, click **Personal access tokens**.
-        4) Click **Generate new token**.
-        5) Give your token a descriptive name.
-        6) Select the scopes, or permissions, you'd like to grant this token.
-        7) Click Generate token.
+        3) In the left sidebar, select the Developer settings
+        4) In the left sidebar, click **Personal access tokens**.
+        5) Click **Generate new token**.
+        6) Give your token a descriptive name.
+        7) Select the scopes, or permissions, you'd like to grant this token.
+        8) Click Generate token.
       is_required: true
+      is_expand: true
+      is_sensitive: true
