@@ -44,4 +44,4 @@ inputs:
         8) Click Generate token.
       is_required: true
       is_expand: true
-    is_sensitive: true
+      is_sensitive: true
