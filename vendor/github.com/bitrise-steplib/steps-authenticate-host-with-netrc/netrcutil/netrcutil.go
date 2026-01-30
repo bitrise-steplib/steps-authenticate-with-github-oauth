@@ -2,6 +2,7 @@ package netrcutil
 
 import (
 	"fmt"
+	"os"
 	"path/filepath"
 
 	"github.com/bitrise-io/go-utils/fileutil"
@@ -37,7 +38,8 @@ func (netRCModel *NetRCModel) AddItemModel(itemModels ...NetRCItemModel) {
 // CreateFile ...
 func (netRCModel *NetRCModel) CreateFile() error {
 	netRCFileContent := generateFileContent(netRCModel)
-	return fileutil.WriteStringToFile(netRCModel.OutputPth, netRCFileContent)
+	permission := os.FileMode(0600) // Other tools might fail if the file's permission is not 0600
+	return fileutil.WriteStringToFileWithPermission(netRCModel.OutputPth, netRCFileContent, permission)
 }
 
 // Append ...
@@ -49,7 +51,7 @@ func (netRCModel *NetRCModel) Append() error {
 func generateFileContent(netRCModel *NetRCModel) string {
 	netRCFileContent := ""
 	for i, itemModel := range netRCModel.ItemModels {
-		netRCFileContent += fmt.Sprintf("machine %s\nlogin %s\npassword %s", itemModel.Machine, itemModel.Login, itemModel.Password)
+		netRCFileContent += fmt.Sprintf("machine %s\n\tlogin %s\n\tpassword %s", itemModel.Machine, itemModel.Login, itemModel.Password)
 		if i != len(netRCModel.ItemModels)-1 {
 			netRCFileContent += "\n\n"
 		}
